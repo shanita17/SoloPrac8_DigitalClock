@@ -1,13 +1,14 @@
-let fruits = ["berries", "grapes", "dates"];
+// DIGITAL CLOCK PROGRAM
 
-fruits.forEach(capitalise);
-fruits.forEach(display);
+function updateClock(){
 
-
-function capitalise(element, index, array){
-    array[index] = element.charAt(0).toUpperCase() + element.slice(1)
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, 0);
+    const minutes = now.getMinutes().toString().padStart(2, 0);
+    const seconds = now.getSeconds().toString().padStart(2, 0);
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    document.getElementById("clock").textContent = timeString;
 }
 
-function display(element){
-    document.getElementById("myP1").textContent += element += "\n"
-}
+updateClock();
+setInterval(updateClock, 1000);
